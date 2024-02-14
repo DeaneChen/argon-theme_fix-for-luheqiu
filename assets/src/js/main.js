@@ -106,3 +106,6 @@ require('./horizontal-scroll');
 
 //Console Info
 require('./console-info');
+
+//媒体库支持通过url上传
+require('./url-img-uploader')

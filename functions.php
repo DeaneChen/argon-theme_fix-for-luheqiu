@@ -18,6 +18,9 @@ require get_template_directory() . '/inc/fun/seo.php';  // seo 相关的功能
 // 注册编辑文章界面 Meta box
 require get_template_directory() . '/inc/fun/post-extra-meta-editor.php';
 
+// 注册 通过url上传媒体库
+require_once( get_template_directory() . '/inc/fun/url-img-uploader.php' );
+
 // 注册古腾堡区块和简码，编辑器添加相关按钮
 require get_template_directory() . '/inc/fun/shortcodes.php';
 
