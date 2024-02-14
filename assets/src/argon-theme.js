@@ -1,3 +1,12 @@
+/*
+ * @Author       : LuHeQiu
+ * @Date         : 2024-02-13 15:28:09
+ * @LastEditTime : 2024-02-14 11:35:53
+ * @LastEditors  : LuHeQiu
+ * @Description  : 
+ * @FilePath     : /argon-theme_fix-for-luheqiu/assets/src/argon-theme.js
+ * @HomePage     : https://www.luheqiu.com
+ */
 global.$ = global.jQuery = window.$ = window.jQuery = $ = require('jquery');
 window['$'] = $;
 

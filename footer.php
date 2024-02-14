@@ -71,6 +71,19 @@
 			<link rel="stylesheet" href="<?php echo $GLOBALS['assets_path']; ?>/assets/vendor/highlight/styles/<?php echo get_option('argon_code_theme') == '' ? 'vs2015' : get_option('argon_code_theme'); ?>.css">
 		<?php }?>
 
+		<?php if (get_option('argon_enable_heti') == 'true') { ?>
+			<!-- heti 中文排版增强  -->
+			<script src="<?php echo get_option('argon_heti_cdn_url') == '' ? '//cdn.jsdelivr.net/npm/heti@0.9.4/umd/heti-addon.min.js' : get_option('argon_heti_cdn_url'); ?>" id="Heti-addon-script"></script>
+			<script>
+				window.pjaxLoaded = function(){
+					if(document.querySelector('.heti')){
+						const heti = new Heti('.heti');
+						heti.autoSpacing(); 
+					}
+				}	
+			</script>
+		<?php }?>
+
 	</div>
 </div>
 <?php 

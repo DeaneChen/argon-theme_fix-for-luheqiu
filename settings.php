@@ -1284,7 +1284,7 @@ function themeoptions_page(){
 							<p class="description"><?php _e('图片相对于页面的最大缩放比例 (0 ~ 1 的小数)', 'argon');?></p>
 						</td>
 					</tr>
-					<tr><th class="subtitle"><h2>Pangu.js</h2></th></tr>
+					<tr><th class="subtitle"><h2>中文排版增强</h2></th></tr>
 					<tr>
 						<th><label><?php _e('启用 Pangu.js (自动在中英文之间添加空格)', 'argon');?></label></th>
 						<td>
@@ -1300,6 +1300,24 @@ function themeoptions_page(){
 								<option value="article|shuoshuo|comment" <?php if ($argon_enable_pangu=='article|shuoshuo|comment'){echo 'selected';} ?>><?php _e('格式化文章内容、说说和评论区', 'argon');?></option>
 							</select>
 							<p class="description"><?php _e('开启后，会自动在中文和英文之间添加空格', 'argon');?></p>
+						</td>
+					</tr>
+					<tr>
+					<th><label><?php _e('启用 heti 中文排版增强', 'argon');?></label></th>
+						<td>
+							<select name="argon_enable_heti">
+							<?php $argon_enable_heti = get_option('argon_enable_heti'); ?>
+								<option value="true" <?php if ($argon_enable_heti=='true'){echo 'selected';} ?>><?php _e('启用', 'argon');?></option>
+								<option value="false" <?php if ($argon_enable_heti=='false'){echo 'selected';} ?>><?php _e('禁用', 'argon');?></option>
+							</select>
+							<p class="description"><?php _e('heti 和 pangu.js 相兼容，视个人情况选择性启用', 'argon');?></p>
+						</td>
+					</tr>
+					<tr>
+						<th><label>heti-addon CDN 地址</label></th>
+						<td>
+							<input type="text" class="regular-text" name="argon_heti_cdn_url" value="<?php echo get_option('argon_heti_cdn_url' , ''); ?>"/>
+							<p class="description"><?php _e('默认为', 'argon');?> <code>//cdn.jsdelivr.net/npm/heti@0.9.4/umd/heti-addon.min.js</code></p>
 						</td>
 					</tr>
 					<tr><th class="subtitle"><h2><?php _e('脚本', 'argon');?></h2></th></tr>
@@ -2302,6 +2320,8 @@ function argon_update_themeoptions(){
 		argon_update_option('argon_page_layout');
 		argon_update_option('argon_article_list_layout');
 		argon_update_option('argon_enable_pangu');
+		argon_update_option('argon_enable_heti');
+		argon_update_option('argon_heti_cdn_url');
 		argon_update_option('argon_assets_path');
 		argon_update_option('argon_custom_assets_path');
 		argon_update_option('argon_comment_ua');

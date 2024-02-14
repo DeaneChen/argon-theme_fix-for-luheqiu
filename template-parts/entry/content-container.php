@@ -5,7 +5,7 @@
  *
  */
 ?>
-<div class="post-content" id="post_content">
+<div class="post-content <?php echo get_option('argon_enable_heti') == 'true' ? 'heti' : ''; ?>" id="post_content">
     <?php if ( post_password_required() ){ 
             do_action( 'argon_entry_content_passwd_required' );
         }else{

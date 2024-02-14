@@ -126,6 +126,7 @@
 .post-content {
 	line-height: 1.8;
 	margin-bottom: 10px;
+	max-width: none!important;
 }
 .post-content p {
 	font-weight: normal;
