@@ -473,8 +473,8 @@
 			z-index: -2;
 			background: url(<?php echo apply_filters('argon_page_background_url', get_option('argon_page_background_url'));?>);
 			background-position: center;
-			background-size: cover;
-			background-repeat: no-repeat;
+			background-size: <?php echo (get_option('argon_page_background_fit_mode') == 'fill' ? 'cover' : 'auto'); ?>;
+			background-repeat: <?php echo (get_option('argon_page_background_fit_mode') == 'fill' ? 'no-repeat' : 'repeat'); ?>;
 			opacity: <?php echo (get_option('argon_page_background_opacity') == '' ? '1' : get_option('argon_page_background_opacity')); ?>;
 			transition: opacity .5s ease;
 		}
@@ -493,8 +493,8 @@
 				z-index: -2;
 				background: url(<?php echo apply_filters('argon_page_background_dark_url', get_option('argon_page_background_dark_url'));?>);
 				background-position: center;
-				background-size: cover;
-				background-repeat: no-repeat;
+				background-size: <?php echo (get_option('argon_page_background_fit_mode') == 'fill' ? 'cover' : 'auto'); ?>;
+				background-repeat: <?php echo (get_option('argon_page_background_fit_mode') == 'fill' ? 'no-repeat' : 'repeat'); ?>;
 				opacity: 0;
 				transition: opacity .5s ease;
 			}
@@ -505,6 +505,27 @@
 				opacity: 0;
 			}
 		<?php } ?>
+	</style>
+<?php } ?>
+
+<?php if (apply_filters('argon_article_card_background_url', get_option('argon_article_card_background_url')) != '') { ?>
+	<style>
+		article.post::before {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			z-index: 0;
+			background: url(<?php echo apply_filters('argon_article_card_background_url', get_option('argon_article_card_background_url'));?>);
+			background-position: center;
+			background-size: <?php echo (get_option('argon_article_card_background_fit_mode') == 'fill' ? 'cover' : 'auto'); ?>;
+			background-repeat: <?php echo (get_option('argon_article_card_background_fit_mode') == 'fill' ? 'no-repeat' : 'repeat'); ?>;
+			opacity: <?php echo (get_option('argon_article_card_background_opacity') == '' ? '1' : get_option('argon_article_card_background_opacity')); ?>;
+			transition: opacity .5s ease;
+		}
 	</style>
 <?php } ?>
 

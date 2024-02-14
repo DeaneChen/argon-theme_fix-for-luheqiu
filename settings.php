@@ -506,6 +506,17 @@ function themeoptions_page(){
 							<p class="description"><?php _e('0 ~ 1 的小数，越小透明度越高，默认为 1 不透明', 'argon');?></p>
 						</td>
 					</tr>
+					<tr>
+						<th><label><?php _e('设置背景适应模式', 'argon');?></label></th>
+						<td>
+							<select name="argon_page_background_fit_mode">
+							<?php $argon_page_background_fit_mode = get_option('argon_page_background_fit_mode'); ?>
+								<option value="fill" <?php if ($argon_page_background_fit_mode=='fill'){echo 'selected';} ?>><?php _e('填充', 'argon');?></option>
+								<option value="tile" <?php if ($argon_page_background_fit_mode=='tile'){echo 'selected';} ?>><?php _e('平铺', 'argon');?></option>
+							</select>
+							<p class="description"><?php _e('填充一般用于普通的图像背景，平铺用于可以无限扩展的纹理背景', 'argon');?></p>
+						</td>
+					</tr>
 					<tr><th class="subtitle"><h2><?php _e('左侧栏', 'argon');?></h2></th></tr>
 					<tr>
 						<th><label><?php _e('左侧栏标题', 'argon');?></label></th>
@@ -744,6 +755,32 @@ function themeoptions_page(){
 								<option value="true" <?php if ($argon_first_image_as_thumbnail_by_default=='true'){echo 'selected';} ?>><?php _e('启用', 'argon');?></option>
 							</select>
 							<p class="description"><?php _e('也可以针对每篇文章单独设置', 'argon');?></p>
+						</td>
+					</tr>
+					<tr><th class="subtitle"><h3><?php _e('文章卡片背景', 'argon');?></h3></th></tr>
+					<tr>
+						<th><label><?php _e('文章卡片背景', 'argon');?></label></th>
+						<td>
+							<input type="text" class="regular-text" name="argon_article_card_background_url" value="<?php echo get_option('argon_article_card_background_url'); ?>"/>
+							<p class="description"><?php _e('文章卡片背景的地址，需带上 http(s)。留空则不设置背景。', 'argon');?></p>
+						</td>
+					</tr>
+					<tr>
+						<th><label><?php _e('背景不透明度', 'argon');?></label></th>
+						<td>
+							<input type="number" name="argon_article_card_background_opacity" min="0" max="1" step="0.01" value="<?php echo (get_option('argon_article_card_background_opacity') == '' ? '1' : get_option('argon_article_card_background_opacity')); ?>"/>
+							<p class="description"><?php _e('0 ~ 1 的小数，越小透明度越高，默认为 1 不透明', 'argon');?></p>
+						</td>
+					</tr>
+					<tr>
+						<th><label><?php _e('设置背景适应模式', 'argon');?></label></th>
+						<td>
+							<select name="argon_article_card_background_fit_mode">
+							<?php $argon_article_card_background_fit_mode = get_option('argon_article_card_background_fit_mode'); ?>
+								<option value="fill" <?php if ($argon_article_card_background_fit_mode=='fill'){echo 'selected';} ?>><?php _e('填充', 'argon');?></option>
+								<option value="tile" <?php if ($argon_article_card_background_fit_mode=='tile'){echo 'selected';} ?>><?php _e('平铺', 'argon');?></option>
+							</select>
+							<p class="description"><?php _e('填充一般用于普通的图像背景，平铺用于可以无限扩展的纹理背景', 'argon');?></p>
 						</td>
 					</tr>
 					<tr><th class="subtitle"><h3><?php _e('脚注(引用)', 'argon');?></h3></th></tr>
@@ -1303,7 +1340,7 @@ function themeoptions_page(){
 						</td>
 					</tr>
 					<tr>
-					<th><label><?php _e('启用 heti 中文排版增强', 'argon');?></label></th>
+						<th><label><?php _e('启用 heti 中文排版增强', 'argon');?></label></th>
 						<td>
 							<select name="argon_enable_heti">
 							<?php $argon_enable_heti = get_option('argon_enable_heti'); ?>
@@ -2290,6 +2327,10 @@ function argon_update_themeoptions(){
 		argon_update_option('argon_page_background_url');
 		argon_update_option('argon_page_background_dark_url');
 		argon_update_option('argon_page_background_opacity');
+		argon_update_option('argon_page_background_fit_mode');
+		argon_update_option('argon_article_card_background_url');
+		argon_update_option('argon_article_card_background_opacity');
+		argon_update_option('argon_article_card_background_fit_mode');
 		argon_update_option('argon_page_background_banner_style');
 		argon_update_option('argon_hide_name_email_site_input');
 		argon_update_option('argon_comment_need_captcha');
