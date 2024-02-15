@@ -510,15 +510,7 @@
 
 <?php if (apply_filters('argon_article_card_background_url', get_option('argon_article_card_background_url')) != '') { ?>
 	<style>
-		article.post::before {
-			content: '';
-			display: block;
-			position: absolute;
-			left: 0;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			z-index: 0;
+		article.post{
 			background: url(<?php echo apply_filters('argon_article_card_background_url', get_option('argon_article_card_background_url'));?>);
 			background-position: center;
 			background-size: <?php echo (get_option('argon_article_card_background_fit_mode') == 'fill' ? 'cover' : 'auto'); ?>;
