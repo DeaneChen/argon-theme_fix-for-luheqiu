@@ -442,6 +442,17 @@ function themeoptions_page(){
 						</td>
 					</tr>
 					<tr>
+						<th><label><?php _e('Banner 背景图 适应模式', 'argon');?></label></th>
+						<td>
+							<select name="argon_banner_background_fit_mode">
+							<?php $argon_banner_background_fit_mode = get_option('argon_banner_background_fit_mode'); ?>
+								<option value="fill" <?php if ($argon_banner_background_fit_mode=='fill'){echo 'selected';} ?>><?php _e('填充', 'argon');?></option>
+								<option value="tile" <?php if ($argon_banner_background_fit_mode=='tile'){echo 'selected';} ?>><?php _e('平铺', 'argon');?></option>
+							</select>
+							<p class="description"><?php _e('填充一般用于普通的图像背景，平铺用于可以无限扩展的纹理背景', 'argon');?></p>
+						</td>
+					</tr>
+					<tr>
 						<th><label><?php _e('Banner 渐变背景样式', 'argon');?></label></th>
 						<td>
 							<select name="argon_banner_background_color_type">
@@ -2309,6 +2320,7 @@ function argon_update_themeoptions(){
 		argon_update_option('argon_banner_title');
 		argon_update_option('argon_banner_subtitle');
 		argon_update_option('argon_banner_background_url');
+		argon_update_option('argon_banner_background_fit_mode');
 		argon_update_option('argon_banner_background_color_type');
 		argon_update_option_checkbox('argon_banner_background_hide_shapes');
 		argon_update_option('argon_enable_smoothscroll_type');

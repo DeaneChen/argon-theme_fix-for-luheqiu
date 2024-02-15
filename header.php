@@ -460,6 +460,8 @@
 		<style>
 			section.banner{
 				background-image: url(<?php echo get_banner_background_url(); ?>) !important;
+				background-size: <?php echo (get_option('argon_banner_background_fit_mode') == 'fill' ? 'cover' : 'auto'); ?>;
+				background-repeat: <?php echo (get_option('argon_banner_background_fit_mode') == 'fill' ? 'no-repeat' : 'repeat'); ?>;
 			}
 		</style>
 	<?php } ?>
