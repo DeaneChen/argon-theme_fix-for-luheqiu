@@ -1,8 +1,13 @@
 :root {
 	--card-radius: 4px;
-	--font: "Open Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica,
+	--font: "LXGW WenKai", "Open Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica,
 		Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
 }
+
+.use-font-LXGW{
+	font-family: "LXGW WenKai", "Open Sans", -apple-system, system-ui, sans-serif;
+}
+
 html.themecolor-toodark.darkmode {
 	--themecolor: #5e72e4 !important;
 	--themecolor-light: #8a98eb !important;

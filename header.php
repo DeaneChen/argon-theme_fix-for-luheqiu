@@ -22,6 +22,9 @@
 	if (get_option('argon_font') == 'serif'){
 		$htmlclasses .= 'use-serif ';
 	}
+	if (get_option('argon_font_use_LXGW') == 'true'){
+		$htmlclasses .= 'use-font-LXGW ';
+	}
 	if (get_option('argon_disable_codeblock_style') == 'true'){
 		$htmlclasses .= 'disable-codeblock-style ';
 	}
@@ -120,6 +123,17 @@
 		wp_enqueue_style("style", $GLOBALS['assets_path'] . "/assets/dist/argon-theme.css", null, $GLOBALS['theme_version']);
 		if (get_option('argon_disable_googlefont') != 'true') {wp_enqueue_style("googlefont", "//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Noto+Serif+SC:300,600&display=swap");}
 	?>
+
+	<?php if (get_option('argon_font_use_LXGW') == 'true') : ?>
+			<!-- 启用 LXGW 字体 -->
+			<link rel="stylesheet" href="//cdn.staticfile.org/lxgw-wenkai-webfont/1.6.0/style.css" />
+			<style>
+				.post-content {
+					font-family: "LXGW WenKai" , sans-serif !important;
+				}
+			</style>
+	<?php endif; ?>
+
 	<?php $GLOBALS['wp_path'] = get_option('argon_wp_path') == '' ? '/' : get_option('argon_wp_path'); ?>
 	<script>
 		document.documentElement.classList.remove("no-js");
@@ -340,20 +354,21 @@
 								$output .= "\n$indent</div>\n";
 							}
 							public function start_el( &$output, $object, $depth = 0, $args = array(), $current_object_id = 0 ) {
+								$font_class = get_option('argon_font_use_LXGW') == 'true' ? 'use-font-LXGW' : '';
 								if ($depth == 0){
 									if ($args -> walker -> has_children == 1){
 										$output .= "\n
 										<li class='nav-item dropdown'>
 											<a href='" . $object -> url . "' class='nav-link' data-toggle='dropdown' no-pjax onclick='return false;' title='" . $object -> description . "'>
 										  		<i class='ni ni-book-bookmark d-lg-none'></i>
-												<span class='nav-link-inner--text'>" . $object -> title . "</span>
+												<span class='$font_class nav-link-inner--text'>" . $object -> title . "</span>
 										  </a>";
 									}else{
 										$output .= "\n
 										<li class='nav-item'>
 											<a href='" . $object -> url . "' class='nav-link' target='" . $object -> target . "' title='" . $object -> description . "'>
 										  		<i class='ni ni-book-bookmark d-lg-none'></i>
-												<span class='nav-link-inner--text'>" . $object -> title . "</span>
+												<span class='$font_class nav-link-inner--text'>" . $object -> title . "</span>
 										  </a>";
 									}
 								}else if ($depth == 1){

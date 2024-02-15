@@ -274,6 +274,17 @@ function themeoptions_page(){
 							<p class="description"><?php _e('默认使用无衬线字体/衬线字体。', 'argon');?></p>
 						</td>
 					</tr>
+					<tr>
+						<th><label><?php _e('启用霞鹜文楷 Web 字体', 'argon');?></label></th>
+						<td>
+							<select name="argon_font_use_LXGW">
+							<?php $argon_font_use_LXGW = get_option('argon_font_use_LXGW'); ?>
+								<option value="false" <?php if ($argon_font_use_LXGW=='false'){echo 'selected';} ?>><?php _e('禁用', 'argon');?></option>
+								<option value="true" <?php if ($argon_font_use_LXGW=='true'){echo 'selected';} ?>><?php _e('启用', 'argon');?></option>
+							</select>
+							<p class="description"><?php _e('默认使用CDN', 'argon');?></p>
+						</td>
+					</tr>
 					<tr><th class="subtitle"><h3>CDN</h3></th></tr>
 					<tr>
 						<th><label>CDN</label></th>
@@ -2369,6 +2380,7 @@ function argon_update_themeoptions(){
 		argon_update_option('argon_wp_path');
 		argon_update_option('argon_dateformat');
 		argon_update_option('argon_font');
+		argon_update_option('argon_font_use_LXGW');
 		argon_update_option('argon_card_shadow');
 		argon_update_option('argon_enable_code_highlight');
 		argon_update_option('argon_code_highlight_hide_linenumber');
